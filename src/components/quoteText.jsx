@@ -10,9 +10,6 @@ export function QuoteText() {
     index = Math.floor(Math.random() * quotes.length);
     setIndex(index);
   }
-
-  let currentUrl = window.location.href;
-  let TweetUrl = "https://twitter.com/intent/tweet?url=" + currentUrl + "&text=" + encodeURIComponent(quotes[index].quote) + encodeURIComponent(quotes[index].author);
   
     return (
         <div className="container-text">
@@ -25,7 +22,7 @@ export function QuoteText() {
           </div>
 
           <div className="box-button d-flex justify-content-between align-items-center">
-          <a href={TweetUrl}>
+          <a href={`https://twitter.com/intent/tweet?text=${quotes[index].quote + quotes[index].author}`}>
                 <i class="fab fa-twitter"></i>
             </a>
             <button className="btn button-quote mt-3 font" onClick={handleIndex}>Next Quote</button>
